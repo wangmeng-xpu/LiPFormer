@@ -1,0 +1,17 @@
+[project]
+name = "LipFormer"
+version = "0.0.1"
+requires-python = "==3.10"
+dependencies = [
+    "pytorch_lightning",
+    "pandas",
+    "scikit-learn",
+    "tensorboard",
+    "matplotlib",
+]
+
+[tool.setuptools.packages.find]
+exclude = ["data*",]
+
+[tool.ruff]
+extend-ignore = ["E203"]
