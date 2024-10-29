@@ -1,0 +1,33 @@
+[data]
+seq_len = 720
+pred_len = 96
+label_len = 48
+enc_in = 7
+[hyperparams]
+lr =  0.0001
+batch_size =256
+weight_decay = 0.0
+[electric_data_module]
+label_len = 96
+scale = true
+time_enc = false
+batch_size = 256
+num_workers = 4
+inverse = false
+[model.n_linear]
+individual = false
+[model.clip]
+patch_len= 48
+past_channels = 7
+channels = 0
+future_channels = 7
+embed_dim = 2
+d_model = 512
+dropout = 0.7
+past_static_nums = [13,32,8,25]
+future_static_nums = [13,32,8,25]
+accum_freq = 1
+inverse = false
+scale = true
+time_enc = false
+is_past = false

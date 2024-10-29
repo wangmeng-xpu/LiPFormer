@@ -1,0 +1,36 @@
+[data]
+seq_len = 720
+pred_len = 720
+label_len = 96
+enc_in = 1
+data_module = "elctric"
+[hyperparams]
+lr = 0.005
+batch_size = 32
+quantile = [0.1, 0.25, 0.5, 0.75, 0.9]
+weight_decay = 0
+[electric_data_module]
+label_len = 96
+scale = true
+time_enc = false
+batch_size = 32
+cols = ["date","count","max_temp","mean_temp","min_temp","max_dew","mean_dew","min_dew","max_hum","mean_hum","min_hum","max_sea","mean_sea","min_sea","max_vis","mean_vis","min_vis","max_wind","mean_wind","max_gust","precip","cloud","wind_dir","weekend"]
+num_workers = 4
+inverse = false
+[model.n_linear]
+individual = true
+[model.clip]
+past_channels = 22
+channels = 21
+future_channels = 1
+embed_dim = 2
+patch_len= 48
+d_model = 512
+dropout = 0.5
+past_static_nums = [2]
+future_static_nums = [2]
+accum_freq = 1
+inverse = false
+scale = true
+time_enc = false
+is_past = false
